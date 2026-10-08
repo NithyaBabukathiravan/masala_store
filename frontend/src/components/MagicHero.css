@@ -1,0 +1,710 @@
+.magic-hero {
+  --dark: #06301a;
+  --dark2: #0f5a2c;
+  --main: #2f9e44;
+  --accent: #ffc928;
+  --accent2: #ff8a1f;
+
+  position: relative;
+
+  min-height: calc(100vh - 80px);
+
+  overflow: hidden;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      ellipse at 70% 45%,
+      var(--main) -20%,
+      var(--dark2) 40%,
+      var(--dark) 100%
+    );
+
+  transition:
+    background 0.6s ease;
+}
+
+/* =========================
+   THEMES
+========================= */
+
+.magic-hero.theme-red {
+  --dark: #3d0610;
+  --dark2: #7a0f1a;
+  --main: #c4302b;
+}
+
+.magic-hero.theme-saffron {
+  --dark: #6b2a02;
+  --dark2: #c4560a;
+  --main: #f59a1b;
+  --accent: #fff1b8;
+  --accent2: #ffd23f;
+}
+
+.magic-hero.theme-purple {
+  --dark: #1f0a36;
+  --dark2: #4a1d73;
+  --main: #9b4dca;
+}
+
+/* =========================
+   GLOW
+========================= */
+
+.hero-glow {
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  right: 5%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.20),
+      transparent 65%
+    );
+
+  filter: blur(10px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+
+  bottom: -30px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  opacity: 0.35;
+
+  animation:
+    particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  100% {
+    transform:
+      translateY(-110vh)
+      rotate(360deg);
+  }
+
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.hero-container {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(1400px, 92%);
+
+  min-height: calc(100vh - 80px);
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    0.9fr 1.1fr;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding:
+    70px 0
+    70px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.hero-text {
+  position: relative;
+
+  z-index: 5;
+}
+
+.hero-tag {
+  display: inline-block;
+
+  padding:
+    9px 18px;
+
+  border-radius: 30px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.25);
+
+  background:
+    rgba(255,255,255,0.12);
+
+  backdrop-filter:
+    blur(10px);
+
+  color: var(--accent);
+
+  font-size: 12px;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 25px;
+}
+
+.hero-text h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(50px, 6vw, 92px);
+
+  line-height: 0.98;
+
+  letter-spacing: -3px;
+}
+
+.hero-text h1 span {
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent2)
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+}
+
+.hero-text p {
+  max-width: 540px;
+
+  margin:
+    28px 0 30px;
+
+  font-size: 18px;
+
+  line-height: 1.65;
+
+  color:
+    rgba(255,255,255,0.82);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons {
+  display: flex;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding:
+    16px 30px;
+
+  border-radius: 40px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform:
+    translateY(-5px);
+}
+
+.hero-btn.primary {
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent2)
+    );
+
+  color: #2a1200;
+
+  box-shadow:
+    0 15px 35px
+    rgba(0,0,0,0.35);
+}
+
+.hero-btn.secondary {
+  border:
+    1px solid
+    rgba(255,255,255,0.5);
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(8px);
+
+  color: white;
+}
+
+.hero-btn.primary span {
+  font-size: 22px;
+}
+
+/* =========================
+   TRUST
+========================= */
+
+.trust-points {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 32px;
+
+  color:
+    rgba(255,255,255,0.75);
+
+  font-size: 14px;
+}
+
+.trust-points span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.trust-points b {
+  color: var(--accent);
+}
+
+/* =========================
+   PRODUCT AREA
+========================= */
+
+.hero-products {
+  position: relative;
+
+  height: 570px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.product-halo {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.18),
+      transparent 65%
+    );
+}
+
+/* Product */
+
+.product {
+  position: absolute;
+
+  width: 270px;
+
+  transition:
+    transform 0.25s ease;
+
+  filter:
+    drop-shadow(
+      0 30px 25px
+      rgba(0,0,0,0.55)
+    );
+}
+
+.product img {
+  width: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.product-left {
+  left: 3%;
+
+  bottom: 50px;
+
+  width: 220px;
+
+  z-index: 1;
+}
+
+.product-main {
+  left: 50%;
+
+  bottom: 10px;
+
+  width: 330px;
+
+  margin-left: -165px;
+
+  z-index: 3;
+}
+
+.product-right {
+  right: 3%;
+
+  bottom: 55px;
+
+  width: 220px;
+
+  z-index: 1;
+}
+
+/* Floating animation */
+
+.product-left,
+.product-right {
+  animation:
+    productFloat 5s ease-in-out infinite;
+}
+
+.product-right {
+  animation-delay: -2s;
+}
+
+.product-main {
+  animation:
+    productMainFloat 5s ease-in-out infinite;
+}
+
+@keyframes productFloat {
+
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -18px;
+  }
+
+}
+
+@keyframes productMainFloat {
+
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -12px;
+  }
+
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.hero-dots {
+  position: absolute;
+
+  z-index: 10;
+
+  bottom: 35px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  gap: 12px;
+}
+
+.hero-dots button {
+  width: 10px;
+  height: 10px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.45);
+
+  cursor: pointer;
+
+  transition:
+    all 0.3s ease;
+}
+
+.hero-dots button.active {
+  width: 15px;
+  height: 15px;
+
+  background: white;
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+.scroll-text {
+  position: absolute;
+
+  bottom: 35px;
+
+  left: 4%;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  color:
+    rgba(255,255,255,0.55);
+}
+
+/* =========================
+   THEME SWITCHER
+========================= */
+
+.theme-switcher {
+  position: absolute;
+
+  right: 4%;
+
+  bottom: 30px;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.theme-switcher button {
+  width: 23px;
+  height: 23px;
+
+  border-radius: 50%;
+
+  border:
+    2px solid white;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.theme-switcher button:hover {
+  transform:
+    scale(1.25);
+}
+
+.green-theme {
+  background: #2f9e44;
+}
+
+.red-theme {
+  background: #c4302b;
+}
+
+.saffron-theme {
+  background: #f59a1b;
+}
+
+.purple-theme {
+  background: #9b4dca;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1050px) {
+
+  .hero-container {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    padding-top: 80px;
+  }
+
+  .hero-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons,
+  .trust-points {
+    justify-content: center;
+  }
+
+  .hero-products {
+    height: 400px;
+  }
+
+  .product-left,
+  .product-right {
+    width: 160px;
+  }
+
+  .product-main {
+    width: 220px;
+
+    margin-left: -110px;
+  }
+
+  .theme-switcher {
+    display: none;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .magic-hero {
+    min-height: 850px;
+  }
+
+  .hero-container {
+    width: 92%;
+
+    padding-top: 50px;
+  }
+
+  .hero-text h1 {
+    font-size: 50px;
+
+    letter-spacing: -2px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+  }
+
+  .hero-tag {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .hero-products {
+    height: 320px;
+  }
+
+  .product-left,
+  .product-right {
+    width: 105px;
+  }
+
+  .product-main {
+    width: 160px;
+
+    margin-left: -80px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .hero-btn {
+    width: 220px;
+  }
+
+  .trust-points {
+    gap: 10px;
+
+    font-size: 12px;
+  }
+
+  .scroll-text {
+    display: none;
+  }
+
+}
